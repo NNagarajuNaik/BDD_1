@@ -275,6 +275,7 @@ public class Hotels_Library {
 		for (WebElement MSearch : modify) {
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+			MSearch.click();
 			if (MSearch.isSelected())
 				System.out.println(MSearch.getText()+" search option is working fine.");
 			else
@@ -295,6 +296,7 @@ public class Hotels_Library {
 		for (WebElement priority : driver.findElements(By.xpath("(//div[@class='mb-2'])"))) {
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+			priority.click();
 			if (priority.isSelected())
 				System.out.println(priority.getText()+" search option is working fine.");
 			else
@@ -310,6 +312,7 @@ public class Hotels_Library {
 		wait.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[contains(@class,'field bw-1')])[2]")));
 		WebElement Fhotels = driver.findElement(By.xpath("(//input[contains(@class,'field bw-1')])[2]"));
+		Fhotels.click();
 		if (Fhotels.isSelected())
 			System.out.println(Fhotels.getText()+" search option is working fine.");
 		else
@@ -323,9 +326,11 @@ public class Hotels_Library {
 		wait = new WebDriverWait(driver, 10);
 		wait.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[contains(@class,'bn box-border')])")));
-		for (WebElement t_price : driver.findElements(By.xpath("(//input[contains(@class,'bn box-border')])"))) {
+		List<WebElement> total_P = driver.findElements(By.xpath("(//input[contains(@class,'bn box-border')])"));
+		for (WebElement t_price : total_P) {
 
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+			t_price.click();
 			if (t_price.isSelected())
 				System.out.println(t_price.getText()+" search option is working fine.");
 			else
@@ -341,9 +346,11 @@ public class Hotels_Library {
 		wait.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
 		System.out.println();
-		for (WebElement rating : driver.findElements(By.xpath("(//label[contains(@class,'radio w-100p')])"))) {
+		List<WebElement> Rating =  driver.findElements(By.xpath("(//label[contains(@class,'radio w-100p')])"));
+		for (WebElement rating : Rating) {
 
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
+			rating.click();
 			if (rating.isSelected())
 				System.out.println(rating.getText()+" search option is working fine.");
 			else
@@ -359,11 +366,13 @@ public class Hotels_Library {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("(((//div[contains(@class,'flex flex-between')])[3]/following-sibling::div/label))")));
 
-		for (WebElement Soffers : driver.findElements(
-				By.xpath("(((//div[contains(@class,'flex flex-between')])[3]/following-sibling::div/label))"))) {
+		List<WebElement> soffer = driver.findElements(
+				By.xpath("(((//div[contains(@class,'flex flex-between')])[3]/following-sibling::div/label))"));
+		for (WebElement Soffers : soffer) {
 
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
+			Soffers.click();
 			if (Soffers.isSelected())
 				System.out.println(Soffers.getText()+" search option is working fine.");
 			else
@@ -379,11 +388,14 @@ public class Hotels_Library {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("(((//div[contains(@class,'flex flex-between')])[4]/following-sibling::div/label))")));
 
+		List<WebElement> tArating = driver.findElements(
+				By.xpath("(((//div[contains(@class,'flex flex-between')])[4]/following-sibling::div/label))"));
 		for (WebElement TArating : driver.findElements(
 				By.xpath("(((//div[contains(@class,'flex flex-between')])[4]/following-sibling::div/label))"))) {
 
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
+			TArating.click();
 			if (TArating.isSelected())
 				System.out.println(TArating.getText()+" search option is working fine.");
 			else
@@ -407,6 +419,10 @@ public class Hotels_Library {
 
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
+			driver.findElement(By.xpath("(//div[contains(@class,'c-secondary-500 fs-body')])[1]")).click();
+			wait.until(ExpectedConditions
+					.visibilityOfElementLocated(By.xpath("(//label[contains(@class,'radio w-100p')])")));
+			Amenties.click();
 			if (Amenties.isSelected())
 				System.out.println(Amenties.getText()+"search option is working fine.");
 			else
@@ -420,6 +436,29 @@ public class Hotels_Library {
 		System.out.println();
 		wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+	
+		driver.findElement(By.xpath("(//div[contains(@class,'c-secondary-500 fs-body')])[2]")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+		List<WebElement> pType = driver.findElements(
+				By.xpath("(((//div[contains(@class,'flex flex-between')])[6]/following-sibling::div/label))"));
+		List<WebElement> pType1 = driver
+				.findElements(By.xpath("(//label[contains(@class,'checkbox ')])[23]/following-sibling::div/div/label"));
+		pType.addAll(pType1);
+		for (WebElement Property : pType) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='row nmx-1']/div[4]")));
+			driver.findElement(By.xpath("(//div[contains(@class,'c-secondary-500 fs-body')])[2]")).click();
+		
+			Property.click();
+			if (Property.isSelected()) {
+				System.out.println(Property+" is selected");
+			} else {
+
+				System.out.println(Property+" is not selected");
+			}
+		
+		}
+	
+	
 	}
 
 //	@Then("^I verify D-block$")

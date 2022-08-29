@@ -19,6 +19,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Sample {
 
+	public static void isChecked(List<WebElement> buttons) throws Throwable{
+		boolean checked = false;
+		List<WebElement> button = buttons;
+		for (WebElement radioButton : button) {
+			checked = radioButton.isSelected();
+			if (!checked) {
+				radioButton.click();
+				Thread.sleep(5000);
+			}
+		}
+	}
 	public static void main(String[] args) throws Throwable {
 
 		
@@ -139,6 +150,9 @@ public class Sample {
 			System.out.println(names);
 		}
 
+		isChecked(filters);
+		isChecked(filters);
+		
 		System.out.println();
 		List<WebElement> t_price = driver.findElements(By.xpath("(//input[contains(@class,'bn box-border')])"));
 		driver.findElement(By.xpath("(//input[contains(@class,'bn box-border')])[1]")).clear();
@@ -150,6 +164,8 @@ public class Sample {
 			String price = Tprice.getAttribute("value");
 			System.out.println(price);
 		}
+		
+		isChecked(t_price);
 
 		Thread.sleep(3000);
 		System.out.println();
