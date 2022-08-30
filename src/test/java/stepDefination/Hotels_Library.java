@@ -15,7 +15,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Hotels_Library {
+public class Hotels_Library extends Sample{
 
 	WebDriver driver;
 	WebDriverWait wait;
